@@ -1,0 +1,40 @@
+# build
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+shop
+shop.exe
+
+# cmake
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.user
+compile_commands.json
+
+# ide
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# reports (generated)
+reports/*.csv
+*.csv
+
+# secrets/local configs
+.env
+.env.*
+
+# allow folder placeholder
+!reports/.gitkeep
