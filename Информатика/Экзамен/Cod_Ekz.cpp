@@ -294,12 +294,11 @@ public:
     }
 };
 
-// ===== MAIN FUNCTION =====
+
 int main() {
     try {
         cout << "========== ONLINE SHOP SYSTEM ==========" << endl << endl;
 
-        // Database connection
         const string CONNECTION_STR =
             "dbname=ekz_task user=postgres password=StasPost2007 host=localhost port=5432";
 
@@ -312,7 +311,7 @@ int main() {
 
         cout << endl;
 
-        // ===== ADMIN OPERATIONS =====
+        // ADMIN OPERATIONS
         cout << "--- ADMIN OPERATIONS ---" << endl;
         Admin admin(1, "Admin User", "admin@shop.com");
         admin.addProduct("Tablet", 299.99, 5);
@@ -320,7 +319,6 @@ int main() {
         admin.updateOrderStatus(1, "completed");
         cout << endl;
 
-        // ===== MANAGER OPERATIONS =====
         cout << "--- MANAGER OPERATIONS ---" << endl;
         Manager manager(2, "Manager User", "manager@shop.com");
         manager.viewOrderStatus(1);
@@ -328,7 +326,7 @@ int main() {
         manager.approveOrder(2);
         cout << endl;
 
-        // ===== CUSTOMER OPERATIONS =====
+        
         cout << "--- CUSTOMER OPERATIONS ---" << endl;
         Customer customer(3, "Ivan Petrov", "ivan@shop.com");
         auto order = make_shared<Order>(3, 3);
@@ -342,7 +340,7 @@ int main() {
         cout << "  Total spent: $" << fixed << setprecision(2) << customer.getMyTotalSpent() << endl;
         cout << endl;
 
-        // ===== POLYMORPHISM: VIRTUAL FUNCTION CALLS =====
+
         cout << "--- POLYMORPHISM: VIRTUAL FUNCTION CALLS ---" << endl;
         User* user = &admin;
         cout << "Call via User* pointing to Admin:" << endl;
@@ -353,14 +351,14 @@ int main() {
         user->viewOrderStatus(3);
         cout << endl;
 
-        // ===== ORDER STATUS HISTORY (TRIGGER) =====
+        // ORDER STATUS HISTORY (TRIGGER)
         cout << "--- ORDER STATUS HISTORY (TRIGGER) ---" << endl;
         cout << "Order #1 status history:" << endl;
         cout << "  pending  completed at 2026-01-14 00:18:00" << endl;
         cout << "  completed  completed at 2026-01-14 00:18:05" << endl;
         cout << endl;
 
-        // ===== CUSTOMER ORDERS LIST (AGGREGATION) =====
+        //  CUSTOMER ORDERS LIST (AGGREGATION)
         cout << "--- CUSTOMER ORDERS LIST (AGGREGATION) ---" << endl;
         customer.viewMyOrders();
         cout << endl;
@@ -374,4 +372,5 @@ int main() {
         cerr << " Error: " << e.what() << endl;
         return 1;
     }
+
 }
